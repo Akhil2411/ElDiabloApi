@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ElDiabloModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RMSFoodItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ItemType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PricePerItem" Type="float" Nullable="false" />
+          <Property Name="TotalStock" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RMSOrders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderDate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="OrderAmount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RMSSell">
+          <Key>
+            <PropertyRef Name="SellId" />
+          </Key>
+          <Property Name="SellId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PricePerUnit" Type="float" Nullable="false" />
+          <Property Name="TotalUnits" Type="float" Nullable="false" />
+          <Property Name="TotalCost" Type="float" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ItemId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_RMSSell_RMSFoodItem">
+          <End Role="RMSFoodItem" Type="Self.RMSFoodItem" Multiplicity="1" />
+          <End Role="RMSSell" Type="Self.RMSSell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RMSFoodItem">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="RMSSell">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RMSSell_RMSOrders1">
+          <End Role="RMSOrders" Type="Self.RMSOrders" Multiplicity="1" />
+          <End Role="RMSSell" Type="Self.RMSSell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RMSOrders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="RMSSell">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ElDiabloModelStoreContainer">
+          <EntitySet Name="RMSFoodItem" EntityType="Self.RMSFoodItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RMSOrders" EntityType="Self.RMSOrders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RMSSell" EntityType="Self.RMSSell" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_RMSSell_RMSFoodItem" Association="Self.FK_RMSSell_RMSFoodItem">
+            <End Role="RMSFoodItem" EntitySet="RMSFoodItem" />
+            <End Role="RMSSell" EntitySet="RMSSell" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RMSSell_RMSOrders1" Association="Self.FK_RMSSell_RMSOrders1">
+            <End Role="RMSOrders" EntitySet="RMSOrders" />
+            <End Role="RMSSell" EntitySet="RMSSell" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ElDiabloModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RMSFoodItem">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ItemType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PricePerItem" Type="Double" Nullable="false" />
+          <Property Name="TotalStock" Type="Double" Nullable="false" />
+          <NavigationProperty Name="RMSSells" Relationship="Self.FK_RMSSell_RMSFoodItem" FromRole="RMSFoodItem" ToRole="RMSSell" />
+        </EntityType>
+        <EntityType Name="RMSOrder">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OrderDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OrderAmount" Type="Double" Nullable="false" />
+          <NavigationProperty Name="RMSSells" Relationship="Self.FK_RMSSell_RMSOrders1" FromRole="RMSOrders" ToRole="RMSSell" />
+        </EntityType>
+        <EntityType Name="RMSSell">
+          <Key>
+            <PropertyRef Name="SellId" />
+          </Key>
+          <Property Name="SellId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PricePerUnit" Type="Double" Nullable="false" />
+          <Property Name="TotalUnits" Type="Double" Nullable="false" />
+          <Property Name="TotalCost" Type="Double" Nullable="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="ItemId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RMSFoodItem" Relationship="Self.FK_RMSSell_RMSFoodItem" FromRole="RMSSell" ToRole="RMSFoodItem" />
+          <NavigationProperty Name="RMSOrder" Relationship="Self.FK_RMSSell_RMSOrders1" FromRole="RMSSell" ToRole="RMSOrders" />
+        </EntityType>
+        <Association Name="FK_RMSSell_RMSFoodItem">
+          <End Role="RMSFoodItem" Type="Self.RMSFoodItem" Multiplicity="1" />
+          <End Role="RMSSell" Type="Self.RMSSell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RMSFoodItem">
+              <PropertyRef Name="ItemId" />
+            </Principal>
+            <Dependent Role="RMSSell">
+              <PropertyRef Name="ItemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RMSSell_RMSOrders1">
+          <End Role="RMSOrders" Type="Self.RMSOrder" Multiplicity="1" />
+          <End Role="RMSSell" Type="Self.RMSSell" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RMSOrders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="RMSSell">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ElDiabloEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RMSFoodItems" EntityType="Self.RMSFoodItem" />
+          <EntitySet Name="RMSOrders" EntityType="Self.RMSOrder" />
+          <EntitySet Name="RMSSells" EntityType="Self.RMSSell" />
+          <AssociationSet Name="FK_RMSSell_RMSFoodItem" Association="Self.FK_RMSSell_RMSFoodItem">
+            <End Role="RMSFoodItem" EntitySet="RMSFoodItems" />
+            <End Role="RMSSell" EntitySet="RMSSells" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RMSSell_RMSOrders1" Association="Self.FK_RMSSell_RMSOrders1">
+            <End Role="RMSOrders" EntitySet="RMSOrders" />
+            <End Role="RMSSell" EntitySet="RMSSells" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ElDiabloModelStoreContainer" CdmEntityContainer="ElDiabloEntities">
+          <EntitySetMapping Name="RMSFoodItems">
+            <EntityTypeMapping TypeName="ElDiabloModel.RMSFoodItem">
+              <MappingFragment StoreEntitySet="RMSFoodItem">
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="PricePerItem" ColumnName="PricePerItem" />
+                <ScalarProperty Name="TotalStock" ColumnName="TotalStock" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RMSOrders">
+            <EntityTypeMapping TypeName="ElDiabloModel.RMSOrder">
+              <MappingFragment StoreEntitySet="RMSOrders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderAmount" ColumnName="OrderAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RMSSells">
+            <EntityTypeMapping TypeName="ElDiabloModel.RMSSell">
+              <MappingFragment StoreEntitySet="RMSSell">
+                <ScalarProperty Name="SellId" ColumnName="SellId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+                <ScalarProperty Name="TotalUnits" ColumnName="TotalUnits" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

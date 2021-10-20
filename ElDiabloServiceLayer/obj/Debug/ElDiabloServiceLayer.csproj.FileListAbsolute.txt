@@ -1,0 +1,14 @@
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\ElDiabloServiceLayer.dll
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\ElDiabloServiceLayer.pdb
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\ElDiabloDataAccessLayer.dll
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\ElDiabloEntityLayer.dll
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\EntityFramework.dll
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\ElDiabloDataAccessLayer.pdb
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\ElDiabloDataAccessLayer.dll.config
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\ElDiabloEntityLayer.pdb
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\bin\Debug\EntityFramework.xml
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\obj\Debug\ElDiabloServiceLayer.csproj.AssemblyReference.cache
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\obj\Debug\ElDiabloServiceLayer.csproj.CoreCompileInputs.cache
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\obj\Debug\ElDiabloServiceLayer.csproj.CopyComplete
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\obj\Debug\ElDiabloServiceLayer.dll
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloServiceLayer\obj\Debug\ElDiabloServiceLayer.pdb

@@ -1,0 +1,6 @@
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloEntityLayer\bin\Debug\ElDiabloEntityLayer.dll
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloEntityLayer\bin\Debug\ElDiabloEntityLayer.pdb
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloEntityLayer\obj\Debug\ElDiabloEntityLayer.csproj.AssemblyReference.cache
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloEntityLayer\obj\Debug\ElDiabloEntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloEntityLayer\obj\Debug\ElDiabloEntityLayer.dll
+C:\Users\akhil.raju\Desktop\Restaurant\NewCode\ElDiabloApi\ElDiabloEntityLayer\obj\Debug\ElDiabloEntityLayer.pdb
